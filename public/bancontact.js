@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Load the publishable key from the server. The publishable key
   // is set in your .env file. In practice, most users hard code the
   // publishable key when initializing the Stripe object.
-  const {publishableKey} = await fetch('https://api.stripe-demo.to.rnqvist.com/custom/config').then((r) => r.json());
+  const {publishableKey} = await fetch('https://api-stripe-demo.rnqvist.com/custom/config').then((r) => r.json());
   if (!publishableKey) {
     addMessage(
       'No publishable key returned from the server. Please check `.env` and try again'
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Make a call to the server to create a new
     // payment intent and store its client_secret.
     const {error: backendError, clientSecret} = await fetch(
-      'https://api.stripe-demo.to.rnqvist.com/custom/create-payment-intent',
+      'https://api-stripe-demo.rnqvist.com/custom/create-payment-intent',
       {
         method: 'POST',
         headers: {
