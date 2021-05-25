@@ -4,13 +4,13 @@ submitBtn.addEventListener('click', async (e) => {
   // Fetch your Stripe publishable key to initialize Stripe.js
   // In practice, you might just hard code the publishable API
   // key here.
-  const {publishableKey} = await fetch('/config').then((r) => r.json());
+  const {publishableKey} = await fetch('https://api.stripe-demo.to.rnqvist.com/checkout/config').then((r) => r.json());
   const stripe = Stripe(publishableKey, {
     apiVersion: '2020-08-27',
   });
 
   // Create the checkout session on the server.
-  const {error, sessionId} = await fetch('/create-checkout-session', {
+  const {error, sessionId} = await fetch('https://api.stripe-demo.to.rnqvist.com/checkout/create-checkout-session', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

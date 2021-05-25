@@ -2,7 +2,7 @@ var urlParams = new URLSearchParams(window.location.search);
 var sessionId = urlParams.get('session_id');
 
 if (sessionId) {
-  fetch('/checkout-session?sessionId=' + sessionId)
+  fetch('https://api.stripe-demo.to.rnqvist.com/checkout/checkout-session?sessionId=' + sessionId)
     .then(function (result) {
       return result.json();
     })
